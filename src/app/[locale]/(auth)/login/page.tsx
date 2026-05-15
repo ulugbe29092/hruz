@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from '@/hooks/useTranslations';
 import { motion } from 'framer-motion';
 import Input from '@/components/ui/Input';
@@ -12,8 +12,8 @@ export default function LoginPage() {
   const t = useTranslations('auth');
   const tCommon = useTranslations('common');
   const router = useRouter();
-  const params = useParams();
-  const locale = params.locale as string;
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'uz';
   
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
