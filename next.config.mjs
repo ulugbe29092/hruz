@@ -7,6 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'standalone',
+  serverExternalPackages: ['@prisma/client', 'prisma'],
   images: {
     remotePatterns: [
       {
@@ -14,9 +15,6 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
       },
     ],
-  },
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
   },
 };
 
